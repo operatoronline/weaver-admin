@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --spacing-unit: 4px;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+.card {
+  @apply rounded-24 bg-bg-surface border border-black/5 shadow-sm p-24;
+}
+
+.badge {
+  @apply px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-wider;
+}

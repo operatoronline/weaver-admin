@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Weaver Admin 🕸️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" />
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['DM Sans', 'sans-serif'],
+            },
+            spacing: {
+              '4': '4px',
+              '8': '8px',
+              '12': '12px',
+              '16': '16px',
+              '20': '20px',
+              '24': '24px',
+              '32': '32px',
+              '40': '40px',
+              '48': '48px',
+              '64': '64px',
+            },
+            colors: {
+              primary: 'oklch(60% 0.15 250)', // Blue-ish
+              success: 'oklch(70% 0.15 140)', // Green
+              warning: 'oklch(80% 0.15 80)',  // Yellow
+              error: 'oklch(60% 0.15 30)',    // Red
+              bg: {
+                main: 'oklch(98% 0 0)',
+                surface: 'oklch(100% 0 0)',
+                elevated: 'oklch(95% 0 0)',
+              },
+              fg: {
+                main: 'oklch(20% 0 0)',
+                muted: 'oklch(50% 0 0)',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --grid-cols: 24;
+      }
+      body {
+        background-color: oklch(98% 0 0);
+        color: oklch(20% 0 0);
+        font-family: 'DM Sans', sans-serif;
+        overflow-x: hidden;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(var(--grid-cols), 1fr);
+        gap: 16px;
+        padding: 0 16px;
+      }
+      .no-wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .no-wrap::-webkit-scrollbar {
+        display: none;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .truncate-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
