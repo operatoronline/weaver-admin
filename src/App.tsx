@@ -31,9 +31,14 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const getApiBase = () => {
+    const isDev = window.location.hostname.includes('operator.onl');
+    return isDev ? 'https://weaver.operator.onl' : 'https://weaver.onl';
+  };
+
   const fetchStatus = async () => {
     try {
-      const res = await fetch('https://weaver.onl/admin/status');
+      const res = await fetch(`${getApiBase()}/admin/status`);
       if (!res.ok) throw new Error('Failed to fetch status');
       const data = await res.json();
       setStatus(data);
@@ -47,7 +52,7 @@ export default function App() {
 
   const fetchLogs = async () => {
     try {
-      const res = await fetch('https://weaver.onl/admin/logs');
+      const res = await fetch(`${getApiBase()}/admin/logs`);
       const data = await res.json();
       setLogs(data.output || '');
     } catch (err) {}
@@ -55,7 +60,7 @@ export default function App() {
 
   const fetchService = async () => {
     try {
-      const res = await fetch('https://weaver.onl/admin/service');
+      const res = await fetch(`${getApiBase()}/admin/service`);
       const data = await res.json();
       setService(data.output || '');
     } catch (err) {}
